@@ -1,1 +1,1 @@
-Swift Project to practice 
+Cryptocurrency App developed using SwiftUI

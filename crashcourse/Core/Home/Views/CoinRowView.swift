@@ -20,6 +20,7 @@ struct CoinRowView: View {
             rightColumn
         }
         .font(.subheadline)
+        .padding(.horizontal,10)
     }
     
     private var leftColumn: some View{
@@ -41,7 +42,7 @@ struct CoinRowView: View {
     private var centerColumn: some View{
         VStack{
             Text("$ \(coin.currentHoldings!)")
-            Text("\(coin.currentHoldings!.asCurrencyWith2Decimals())")
+            Text("\(coin.currentHoldings!)")
         }
     }
     

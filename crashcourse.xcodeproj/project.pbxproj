@@ -22,6 +22,7 @@
 		C9920EBD2AC31D0E006C5E1B /* crashcourseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9920EBC2AC31D0E006C5E1B /* crashcourseTests.swift */; };
 		C9920EC72AC31D0E006C5E1B /* crashcourseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9920EC62AC31D0E006C5E1B /* crashcourseUITests.swift */; };
 		C9920EC92AC31D0E006C5E1B /* crashcourseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9920EC82AC31D0E006C5E1B /* crashcourseUITestsLaunchTests.swift */; };
+		C9A360DE2B09526A0095359A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A360DD2B09526A0095359A /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		C9920EC22AC31D0E006C5E1B /* crashcourseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = crashcourseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9920EC62AC31D0E006C5E1B /* crashcourseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crashcourseUITests.swift; sourceTree = "<group>"; };
 		C9920EC82AC31D0E006C5E1B /* crashcourseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crashcourseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C9A360DD2B09526A0095359A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		C94CE5A62AD0AF8D00C460B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C94CE5A82AD0AFA100C460B5 /* HomeView.swift */,
 				C94CE5B52AD1C18900C460B5 /* CoinRowView.swift */,
 			);
 			path = Views;
@@ -126,7 +129,7 @@
 		C94CE5A72AD0AF9200C460B5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				C94CE5A82AD0AFA100C460B5 /* HomeView.swift */,
+				C9A360DD2B09526A0095359A /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C94CE5B62AD1C18900C460B5 /* CoinRowView.swift in Sources */,
+				C9A360DE2B09526A0095359A /* HomeViewModel.swift in Sources */,
 				C94CE5AC2AD0B20600C460B5 /* CircleButton.swift in Sources */,
 				C9920EAE2AC31D0C006C5E1B /* ContentView.swift in Sources */,
 				C94CE5A92AD0AFA100C460B5 /* HomeView.swift in Sources */,

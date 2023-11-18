@@ -17,6 +17,7 @@ struct HomeView: View {
             Color.theme.background.ignoresSafeArea()
             VStack{
                 homeHeader
+                columnTitles
                 
                 if !showPortfolio{
                 allCoinsList
@@ -67,6 +68,22 @@ extension HomeView {
             .padding(.horizontal)
     
         }
+    }
+    
+    private var columnTitles: some View{
+        HStack{
+            Text("Coin")
+            Spacer()
+            if showPortfolio{
+                Text("Holdings")
+                Spacer()
+            }
+            Text("Price")
+        }
+        .font(.caption)
+            .foregroundColor(Color.theme.secondaryText)
+            .padding(.horizontal)
+            .frame(width: UIScreen.main.bounds.width / 1.5, alignment: .trailing)
     }
     
     private var allCoinsList: some View {

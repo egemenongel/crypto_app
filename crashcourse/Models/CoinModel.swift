@@ -9,20 +9,24 @@
 import Foundation
 
 // MARK: - CoinModel
-struct CoinModel: Identifiable, Codable {
-    let id: Int
-    let name, symbol, slug: String
-    let cmcRank: Int?
+struct CoinsModel: Codable{
+    let data: [Coin]?
+}
+
+// MARK: - Datum
+struct Coin: Identifiable, Codable{
+    let id, cmcRank: Int?
+    let name, symbol, slug: String?
     let currentHoldings: Double?
-    
+
     enum CodingKeys: String, CodingKey {
         case id, name, symbol, slug
         case cmcRank = "cmc_rank"
         case currentHoldings
     }
-    
-    func updateHoldings (amount: Double) -> CoinModel{
-        return CoinModel(id: id, name: name, symbol: symbol, slug: slug, cmcRank: cmcRank, currentHoldings: amount)
+
+    func updateHoldings (amount: Double) -> Coin{
+        return Coin(id: id, cmcRank: cmcRank, name: name, symbol: symbol, slug: slug, currentHoldings: amount)
     }
-   
 }
+

@@ -34,14 +34,6 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack{
-            HomeView().toolbar(.hidden)
-        }
-        .environmentObject(dev.homeVM)
-    }
-}
 
 extension HomeView {
 
@@ -66,10 +58,10 @@ extension HomeView {
                     }
             }
             .padding(.horizontal)
-    
+
         }
     }
-    
+
     private var columnTitles: some View{
         HStack{
             Text("Coin")
@@ -85,7 +77,7 @@ extension HomeView {
             .padding(.horizontal)
             .frame(width: UIScreen.main.bounds.width / 1.5, alignment: .trailing)
     }
-    
+
     private var allCoinsList: some View {
         List{
             ForEach(vm.allCoins){
@@ -106,3 +98,13 @@ extension HomeView {
         .listStyle(PlainListStyle())
     }
 }
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack{
+            HomeView().toolbar(.hidden)
+        }
+        .environmentObject(dev.homeVM)
+    }
+}
+

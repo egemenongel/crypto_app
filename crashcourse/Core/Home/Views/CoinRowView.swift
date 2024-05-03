@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CoinRowView: View {
-    let coin: CoinModel
+    let coin: Coin
     let showHoldingsColumn: Bool
     
     var body: some View {
@@ -25,13 +25,14 @@ struct CoinRowView: View {
     
     private var leftColumn: some View{
         HStack(spacing: 0){
+            Text("0")
             Text("\(coin.cmcRank!)")
                 .font(.caption)
                 .foregroundStyle(Color.theme.secondaryText)
                 .frame(minWidth: 30)
             Circle()
                 .frame(width: 30, height: 30)
-            Text(coin.symbol.uppercased())
+            Text((coin.symbol?.uppercased())!)
                 .font(.headline)
                 .padding(.leading, 6)
                 .foregroundStyle(Color.theme.accent)
@@ -61,6 +62,6 @@ struct CoinRowView: View {
 
 struct CoinRowView_Previews: PreviewProvider {
     static var previews: some View{
-        CoinRowView(coin: dev.coin, showHoldingsColumn: true)
+        CoinRowView(coin: dev.coin.data!.first!, showHoldingsColumn: true)
     }
 }

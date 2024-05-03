@@ -9,14 +9,14 @@ import Foundation
 
 class HomeViewModel: ObservableObject{
     
-    @Published var allCoins: [CoinModel] = []
-    @Published var portfolioCoins: [CoinModel] = []
-    
+    @Published var allCoins: [Coin] = []
+    @Published var portfolioCoins: [Coin] = []
+
     init() {
         //Add fake data
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.allCoins.append(DeveloperPreview.instance.coin)
-            self.portfolioCoins.append(DeveloperPreview.instance.coin)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.allCoins.append(contentsOf: DeveloperPreview.instance.coin.data ?? [])
+            self.portfolioCoins.append(contentsOf: DeveloperPreview.instance.coin.data ?? [])
         }
     }
 }

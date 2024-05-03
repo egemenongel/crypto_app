@@ -23,5 +23,5 @@ class DeveloperPreview{
         
     let homeVM = HomeViewModel()
     
-    let coin = CoinModel(id: 1, name: "example", symbol: "EXP", slug: "slug", cmcRank: 0, currentHoldings: 1.5)
+    let coin = CoinsModel(data: [Coin(id: 1,cmcRank: 0, name: "example", symbol: "EXP", slug: "slug", currentHoldings: 1.5)])
 }

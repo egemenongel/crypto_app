@@ -91,6 +91,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C92E57D82BEB8EA800EEFC43 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		C94CE59F2AD0A89800C460B5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +200,7 @@
 		C9920EAA2AC31D0C006C5E1B /* crashcourse */ = {
 			isa = PBXGroup;
 			children = (
+				C92E57D82BEB8EA800EEFC43 /* Utilities */,
 				C94CE59F2AD0A89800C460B5 /* Extensions */,
 				C95663DF2BE58429004BE610 /* Services */,
 				C94CE5B02AD1A0C900C460B5 /* Models */,

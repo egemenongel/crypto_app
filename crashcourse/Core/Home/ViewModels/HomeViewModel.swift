@@ -6,11 +6,19 @@
 //
 
 import Foundation
+import Combine
 
 class HomeViewModel: ObservableObject{
     
     @Published var allCoins: [Coin] = []
+<<<<<<< Updated upstream
     @Published var portfolioCoins: [Coin] = []
+=======
+    @Published var fetchedCoins :  [Coin] = []
+    @Published var portfolioCoins: [Coin] = []
+    private let dataService = CoinDataService()
+    private var cancellables = Set<AnyCancellable>()
+>>>>>>> Stashed changes
 
     init() {
         //Add fake data
@@ -18,5 +26,11 @@ class HomeViewModel: ObservableObject{
             self.allCoins.append(contentsOf: DeveloperPreview.instance.coin.data ?? [])
             self.portfolioCoins.append(contentsOf: DeveloperPreview.instance.coin.data ?? [])
         }
+
+        dataService.$allCoins
+            .sink{[weak self] (returnedCoins) in
+                self?.fetchedCoins = returnedCoins.data!
+            }
+            .store(in: &cancellables)
     }
 }

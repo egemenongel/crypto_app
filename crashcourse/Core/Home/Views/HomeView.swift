@@ -80,7 +80,7 @@ extension HomeView {
 
     private var allCoinsList: some View {
         List{
-            ForEach(vm.allCoins){
+            ForEach(vm.fetchedCoins){
                 coin in CoinRowView(coin: coin, showHoldingsColumn: false)
                     .listRowInsets(.init(top: 10, leading:0, bottom:10, trailing: 10))
             }
@@ -108,3 +108,7 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
+<<<<<<< Updated upstream
+=======
+	
+>>>>>>> Stashed changes

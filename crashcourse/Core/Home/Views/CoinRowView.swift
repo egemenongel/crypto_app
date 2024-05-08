@@ -49,8 +49,8 @@ struct CoinRowView: View {
     
     private var rightColumn: some View{
         VStack(alignment: .trailing){
-            Text("$123,408.00")
-            Text("3.12 %").foregroundStyle(
+            Text("\(coin.quote?.usd?.price ?? 0)")
+            Text("\(coin.quote?.usd?.percentChange24H ?? 0)").foregroundStyle(
                 1>0 ?
                 Color.theme.green :
                 Color.theme.red)

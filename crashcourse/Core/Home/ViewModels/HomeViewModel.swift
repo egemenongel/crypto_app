@@ -11,14 +11,10 @@ import Combine
 class HomeViewModel: ObservableObject{
     
     @Published var allCoins: [Coin] = []
-<<<<<<< Updated upstream
     @Published var portfolioCoins: [Coin] = []
-=======
     @Published var fetchedCoins :  [Coin] = []
-    @Published var portfolioCoins: [Coin] = []
     private let dataService = CoinDataService()
     private var cancellables = Set<AnyCancellable>()
->>>>>>> Stashed changes
 
     init() {
         //Add fake data

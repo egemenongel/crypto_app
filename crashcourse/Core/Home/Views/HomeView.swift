@@ -108,7 +108,3 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
-<<<<<<< Updated upstream
-=======
-	
->>>>>>> Stashed changes

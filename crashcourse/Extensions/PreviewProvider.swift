@@ -23,9 +23,5 @@ class DeveloperPreview{
         
     let homeVM = HomeViewModel()
     
-<<<<<<< Updated upstream
-    let coin = CoinsModel(data: [Coin(id: 1,cmcRank: 0, name: "example", symbol: "EXP", slug: "slug", currentHoldings: 1.5)])
-=======
     let coin = CoinsModel(data: [Coin(id: 1,cmcRank: 0, name: "example", symbol: "EXP", slug: "slug", currentHoldings: 1.5,quote: nil)])
->>>>>>> Stashed changes
 }

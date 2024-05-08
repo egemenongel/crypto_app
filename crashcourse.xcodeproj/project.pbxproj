@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C92E57DA2BEBA7EE00EEFC43 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92E57D92BEBA7EE00EEFC43 /* NetworkingManager.swift */; };
 		C94CE5A12AD0A8AC00C460B5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CE5A02AD0A8AC00C460B5 /* Color.swift */; };
 		C94CE5A92AD0AFA100C460B5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CE5A82AD0AFA100C460B5 /* HomeView.swift */; };
 		C94CE5AC2AD0B20600C460B5 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CE5AB2AD0B20600C460B5 /* CircleButton.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C92E57D92BEBA7EE00EEFC43 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		C94CE5A02AD0A8AC00C460B5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C94CE5A82AD0AFA100C460B5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C94CE5AB2AD0B20600C460B5 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		C92E57D82BEB8EA800EEFC43 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				C92E57D92BEBA7EE00EEFC43 /* NetworkingManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				C94CE5A92AD0AFA100C460B5 /* HomeView.swift in Sources */,
 				C9920EAC2AC31D0C006C5E1B /* crashcourseApp.swift in Sources */,
 				C94CE5AF2AD0B78500C460B5 /* CircleButtonAnimation.swift in Sources */,
+				C92E57DA2BEBA7EE00EEFC43 /* NetworkingManager.swift in Sources */,
 				C94CE5A12AD0A8AC00C460B5 /* Color.swift in Sources */,
 				C94CE5B82AD1C23400C460B5 /* PreviewProvider.swift in Sources */,
 				C94CE5BA2AD1C5F500C460B5 /* Double.swift in Sources */,

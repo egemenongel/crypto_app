@@ -25,35 +25,12 @@ class CoinDataService{
         var request = URLRequest(url: url)
         request.setValue(String("7cee5147-c18a-4e64-8b54-13d0ba168fd4"), forHTTPHeaderField: "X-CMC_PRO_API_KEY")
 
-        coinSubscription = URLSession.shared.dataTaskPublisher(for: request)
-            .subscribe(on: DispatchQueue.global(qos: .default))
-            .tryMap{(output) -> Data in
-                 let response = output.response as? HTTPURLResponse
-                if(             response!.statusCode >= 200 && response!.statusCode < 300)
-                {
-
-                } 
-                else{
-                    print(response?.statusCode)
-                    throw URLError(.badServerResponse)
-
-                }
-
-                return output.data
-            }
-            .receive(on: DispatchQueue.main)
+        coinSubscription = NetworkingManager.download(urlRequest: request)
             .decode(type: CoinsModel.self, decoder: JSONDecoder())
-            .sink{ (completion) in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            } receiveValue: {[weak self] (returnedCoins) in
-                      self?.allCoins = returnedCoins
-                      self?.coinSubscription?.cancel()
-            }
-
+            .sink(receiveCompletion: NetworkingManager.handleCompletion, 
+                  receiveValue: {[weak self] (returnedCoins) in
+                self?.allCoins = returnedCoins
+                self?.coinSubscription?.cancel()
+            })
     }
 }

@@ -19,12 +19,13 @@
 		C95663DE2BE5558A004BE610 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95663DD2BE5558A004BE610 /* Assets.xcassets */; };
 		C95663E12BE58452004BE610 /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95663E02BE58452004BE610 /* CoinDataService.swift */; };
 		C9920EAC2AC31D0C006C5E1B /* crashcourseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9920EAB2AC31D0C006C5E1B /* crashcourseApp.swift */; };
-		C9920EAE2AC31D0C006C5E1B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9920EAD2AC31D0C006C5E1B /* ContentView.swift */; };
 		C9920EB32AC31D0E006C5E1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9920EB22AC31D0E006C5E1B /* Preview Assets.xcassets */; };
 		C9920EBD2AC31D0E006C5E1B /* crashcourseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9920EBC2AC31D0E006C5E1B /* crashcourseTests.swift */; };
 		C9920EC72AC31D0E006C5E1B /* crashcourseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9920EC62AC31D0E006C5E1B /* crashcourseUITests.swift */; };
 		C9920EC92AC31D0E006C5E1B /* crashcourseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9920EC82AC31D0E006C5E1B /* crashcourseUITestsLaunchTests.swift */; };
 		C9A360DE2B09526A0095359A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A360DD2B09526A0095359A /* HomeViewModel.swift */; };
+		C9B02E962BFCA173001C7A33 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B02E952BFCA173001C7A33 /* SearchBarView.swift */; };
+		C9E92C862BFCF8D80064D3E3 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E92C852BFCF8D80064D3E3 /* UIApplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,6 @@
 		C95663E02BE58452004BE610 /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
 		C9920EA82AC31D0C006C5E1B /* crashcourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crashcourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9920EAB2AC31D0C006C5E1B /* crashcourseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crashcourseApp.swift; sourceTree = "<group>"; };
-		C9920EAD2AC31D0C006C5E1B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C9920EB22AC31D0E006C5E1B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C9920EB82AC31D0E006C5E1B /* crashcourseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = crashcourseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9920EBC2AC31D0E006C5E1B /* crashcourseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crashcourseTests.swift; sourceTree = "<group>"; };
@@ -66,6 +66,8 @@
 		C9920EC62AC31D0E006C5E1B /* crashcourseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crashcourseUITests.swift; sourceTree = "<group>"; };
 		C9920EC82AC31D0E006C5E1B /* crashcourseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crashcourseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C9A360DD2B09526A0095359A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C9B02E952BFCA173001C7A33 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		C9E92C852BFCF8D80064D3E3 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				C94CE5A02AD0A8AC00C460B5 /* Color.swift */,
 				C94CE5B72AD1C23400C460B5 /* PreviewProvider.swift */,
 				C94CE5B92AD1C5F500C460B5 /* Double.swift */,
+				C9E92C852BFCF8D80064D3E3 /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				C94CE5AD2AD0B76700C460B5 /* CircleButton */,
+				C9B02E952BFCA173001C7A33 /* SearchBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -209,7 +213,6 @@
 				C94CE5B02AD1A0C900C460B5 /* Models */,
 				C94CE5A42AD0AF7B00C460B5 /* Core */,
 				C9920EAB2AC31D0C006C5E1B /* crashcourseApp.swift */,
-				C9920EAD2AC31D0C006C5E1B /* ContentView.swift */,
 				C9920EB12AC31D0E006C5E1B /* Preview Content */,
 			);
 			path = crashcourse;
@@ -374,10 +377,11 @@
 				C94CE5B62AD1C18900C460B5 /* CoinRowView.swift in Sources */,
 				C9A360DE2B09526A0095359A /* HomeViewModel.swift in Sources */,
 				C94CE5AC2AD0B20600C460B5 /* CircleButton.swift in Sources */,
-				C9920EAE2AC31D0C006C5E1B /* ContentView.swift in Sources */,
 				C94CE5A92AD0AFA100C460B5 /* HomeView.swift in Sources */,
 				C9920EAC2AC31D0C006C5E1B /* crashcourseApp.swift in Sources */,
 				C94CE5AF2AD0B78500C460B5 /* CircleButtonAnimation.swift in Sources */,
+				C9B02E962BFCA173001C7A33 /* SearchBarView.swift in Sources */,
+				C9E92C862BFCF8D80064D3E3 /* UIApplication.swift in Sources */,
 				C92E57DA2BEBA7EE00EEFC43 /* NetworkingManager.swift in Sources */,
 				C94CE5A12AD0A8AC00C460B5 /* Color.swift in Sources */,
 				C94CE5B82AD1C23400C460B5 /* PreviewProvider.swift in Sources */,

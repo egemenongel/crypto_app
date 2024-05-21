@@ -22,8 +22,7 @@ struct CircleButton: View {
     }
 }
 
-struct CircleButton_Previews: PreviewProvider {
-    static var previews: some View {
-        CircleButton(iconName: "plus").previewLayout(.sizeThatFits)
-    }
+@available(iOS 17, *)
+#Preview(traits: .sizeThatFitsLayout) {
+    CircleButton(iconName: "plus").previewLayout(.sizeThatFits)
 }

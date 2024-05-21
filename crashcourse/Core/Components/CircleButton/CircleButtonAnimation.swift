@@ -22,7 +22,8 @@ struct CircleButtonAnimation: View {
     }
 }
 
-#Preview {
+@available(iOS 17, *)
+#Preview(traits: .sizeThatFitsLayout) {
     CircleButtonAnimation(animate: .constant(false))
         .frame(width: 100,height: 100)
         .foregroundStyle(.red)

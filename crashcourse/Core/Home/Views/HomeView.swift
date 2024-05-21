@@ -17,6 +17,9 @@ struct HomeView: View {
             Color.theme.background.ignoresSafeArea()
             VStack{
                 homeHeader
+
+                SearchBarView(searchText:$vm.searchText)
+
                 columnTitles
                 
                 if !showPortfolio{
@@ -41,7 +44,7 @@ extension HomeView {
         VStack{
             HStack{
                 CircleButton(iconName: showPortfolio ? "plus" : "info")
-                    .animation(.none)
+                    .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/, value: 1)
                     .background(CircleButtonAnimation(animate: $showPortfolio))
                 Spacer()
                 Text(showPortfolio ? "Portfolio" : "Live Prices")

@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "74012B63-CD03-4872-AF05-8D7FCEF3CCFB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "crashcourse/Core/Components/CircleButton/CircleButtonAnimation.swift"
@@ -46,8 +46,8 @@
             filePath = "crashcourse/Extensions/PreviewProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "DeveloperPreview"
             landmarkType = "3">
          </BreakpointContent>

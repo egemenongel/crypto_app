@@ -11,15 +11,15 @@ struct HomeView: View {
     
     @EnvironmentObject private var vm: HomeViewModel
     @State private var showPortfolio: Bool = false
-    
+    @State private var showPortfolioView: Bool = false
+
     var body: some View {
         ZStack{
             Color.theme.background.ignoresSafeArea()
             VStack{
                 homeHeader
-
+                HomeStatsView(showPortfolio: $showPortfolio)
                 SearchBarView(searchText:$vm.searchText)
-
                 columnTitles
                 
                 if !showPortfolio{
@@ -41,28 +41,33 @@ struct HomeView: View {
 extension HomeView {
 
     private var homeHeader: some View {
-        VStack{
-            HStack{
-                CircleButton(iconName: showPortfolio ? "plus" : "info")
-                    .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/, value: 1)
-                    .background(CircleButtonAnimation(animate: $showPortfolio))
-                Spacer()
-                Text(showPortfolio ? "Portfolio" : "Live Prices")
-                    .font(.headline)
-                    .fontWeight(.heavy)
-                    .foregroundStyle(Color.theme.accent)
-                Spacer()
-                CircleButton(iconName: "chevron.right")
-                    .rotationEffect(Angle(degrees: showPortfolio ? 180 : 0))
-                    .onTapGesture {
-                        withAnimation(.spring()){
-                            showPortfolio.toggle()
-                        }
+        HStack{
+            CircleButton(iconName: showPortfolio ? "plus" : "info")
+                .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/, value: 1)
+                .background(CircleButtonAnimation(animate: $showPortfolio))
+                .onTapGesture {
+                    if(showPortfolio){
+                        showPortfolioView.toggle()
                     }
-            }
-            .padding(.horizontal)
-
+                }
+            Spacer()
+            Text(showPortfolio ? "Portfolio" : "Live Prices")
+                .font(.headline)
+                .fontWeight(.heavy)
+                .foregroundStyle(Color.theme.accent)
+            Spacer()
+            CircleButton(iconName: "chevron.right")
+                .rotationEffect(Angle(degrees: showPortfolio ? 180 : 0))
+                .onTapGesture {
+                    withAnimation(.spring()){
+                        showPortfolio.toggle()
+                    }
+                }
         }
+        .padding(.horizontal)
+        .sheet(isPresented: $showPortfolioView, content: {
+            PortfolioView()
+        })
     }
 
     private var columnTitles: some View{

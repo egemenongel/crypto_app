@@ -46,6 +46,17 @@ struct PortfolioView: View {
 
     }
 
+    private func updateSelectedCoin(coin: Coin) {
+        selectedCoin = coin
+
+        if let portfolioCoin = vm.portfolioCoins.first(where: { $0.id == coin.id }),
+           let amount = portfolioCoin.currentHoldings {
+            ownedText = "\(amount)"
+        } else {
+            ownedText = ""
+        }
+    }
+
     private func totalValue() -> Double{
         if let quantity = Double(ownedText){
             return quantity * (selectedCoin?.quote?.usd?.price ?? 0)
@@ -124,9 +135,15 @@ extension PortfolioView {
     }
 
     private func saveButtonPressed(){
-        guard let coin = selectedCoin else { return }
 
         // Save to Portfolio
+        let coin = selectedCoin
+        let amount = Double(ownedText)
+
+        if(coin != nil && amount != nil){
+            vm.updatePortfolio(coin: coin!, amount: amount!)
+        }
+
 
         // Show Checkmark
         withAnimation(.easeIn){

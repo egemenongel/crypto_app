@@ -19,15 +19,24 @@ struct Coin: Identifiable, Codable{
     let name, symbol, slug: String?
     let currentHoldings: Double?
     let quote: Quote?
-    
+    let coinId: String = UUID().uuidString
+
     enum CodingKeys: String, CodingKey {
-        case id, name, symbol, slug, quote
+        case id, name, symbol, slug, quote, coinId
         case cmcRank = "cmc_rank"
         case currentHoldings
     }
     
     func updateHoldings (amount: Double) -> Coin{
-        return Coin(id: id, cmcRank: cmcRank, name: name, symbol: symbol, slug: slug, currentHoldings: amount, quote:nil)
+        return Coin(id: id, cmcRank: cmcRank, name: name, symbol: symbol, slug: slug, currentHoldings: amount, quote: quote)
+    }
+
+    var currentPrice: Double{
+        return quote?.usd?.price ?? 0
+    }
+
+    var currentHoldingsValue: Double {
+        return (currentHoldings ?? 0) * currentPrice
     }
 }
 struct Quote: Codable{

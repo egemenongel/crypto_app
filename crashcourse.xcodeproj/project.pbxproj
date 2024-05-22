@@ -25,6 +25,8 @@
 		C9920EC92AC31D0E006C5E1B /* crashcourseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9920EC82AC31D0E006C5E1B /* crashcourseUITestsLaunchTests.swift */; };
 		C9A360DE2B09526A0095359A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A360DD2B09526A0095359A /* HomeViewModel.swift */; };
 		C9B02E962BFCA173001C7A33 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B02E952BFCA173001C7A33 /* SearchBarView.swift */; };
+		C9B976852BFE555D009DAC86 /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9B976832BFE555D009DAC86 /* PortfolioContainer.xcdatamodeld */; };
+		C9B976872BFE5604009DAC86 /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B976862BFE5604009DAC86 /* PortfolioDataService.swift */; };
 		C9E92C862BFCF8D80064D3E3 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E92C852BFCF8D80064D3E3 /* UIApplication.swift */; };
 		C9E92C882BFD05DF0064D3E3 /* StatisticModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E92C872BFD05DF0064D3E3 /* StatisticModel.swift */; };
 		C9E92C8A2BFD06A00064D3E3 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E92C892BFD06A00064D3E3 /* StatisticView.swift */; };
@@ -74,6 +76,8 @@
 		C9920EC82AC31D0E006C5E1B /* crashcourseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crashcourseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C9A360DD2B09526A0095359A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C9B02E952BFCA173001C7A33 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		C9B976842BFE555D009DAC86 /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
+		C9B976862BFE5604009DAC86 /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 		C9E92C852BFCF8D80064D3E3 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		C9E92C872BFD05DF0064D3E3 /* StatisticModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticModel.swift; sourceTree = "<group>"; };
 		C9E92C892BFD06A00064D3E3 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 				C94CE5B32AD1A0F500C460B5 /* CoinModel.swift */,
 				C9E92C872BFD05DF0064D3E3 /* StatisticModel.swift */,
 				C9E92C912BFD12C80064D3E3 /* QuoteModel.swift */,
+				C9B976832BFE555D009DAC86 /* PortfolioContainer.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			children = (
 				C95663E02BE58452004BE610 /* CoinDataService.swift */,
 				C9E92C8F2BFD12660064D3E3 /* StatisticsService.swift */,
+				C9B976862BFE5604009DAC86 /* PortfolioDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -412,12 +418,14 @@
 				C94CE5AC2AD0B20600C460B5 /* CircleButton.swift in Sources */,
 				C94CE5A92AD0AFA100C460B5 /* HomeView.swift in Sources */,
 				C9920EAC2AC31D0C006C5E1B /* crashcourseApp.swift in Sources */,
+				C9B976852BFE555D009DAC86 /* PortfolioContainer.xcdatamodeld in Sources */,
 				C94CE5AF2AD0B78500C460B5 /* CircleButtonAnimation.swift in Sources */,
 				C9ECA0502BFD33CC00F09BB6 /* PortfolioView.swift in Sources */,
 				C9B02E962BFCA173001C7A33 /* SearchBarView.swift in Sources */,
 				C9E92C862BFCF8D80064D3E3 /* UIApplication.swift in Sources */,
 				C92E57DA2BEBA7EE00EEFC43 /* NetworkingManager.swift in Sources */,
 				C9E92C882BFD05DF0064D3E3 /* StatisticModel.swift in Sources */,
+				C9B976872BFE5604009DAC86 /* PortfolioDataService.swift in Sources */,
 				C94CE5A12AD0A8AC00C460B5 /* Color.swift in Sources */,
 				C94CE5B82AD1C23400C460B5 /* PreviewProvider.swift in Sources */,
 				C9ECA0522BFD350E00F09BB6 /* CloseButton.swift in Sources */,
@@ -749,6 +757,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C9B976832BFE555D009DAC86 /* PortfolioContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C9B976842BFE555D009DAC86 /* PortfolioContainer.xcdatamodel */,
+			);
+			currentVersion = C9B976842BFE555D009DAC86 /* PortfolioContainer.xcdatamodel */;
+			name = PortfolioContainer.xcdatamodeld;
+			path = /Users/egemenongel/Documents/Projects/Swift/crypto_app/crashcourse/Models/PortfolioContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C9920EA02AC31D0C006C5E1B /* Project object */;
 }

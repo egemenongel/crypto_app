@@ -7,17 +7,30 @@
 
 import SwiftUI
 
+struct CoinDetailLoadingView: View {
+    @Binding var coin: Coin?
+
+    var body: some View {
+        ZStack{
+            if let coin = coin {
+                CoinDetailView(coin: coin)
+            }
+        }
+    }
+}
+
 struct CoinDetailView: View {
     @StateObject private var vm: CoinDetailViewModel
+
     private let gridColumns = [GridItem(.flexible()),GridItem(.flexible())]
 
     let coin: Coin
 
     init(coin: Coin){
         self.coin = coin
-       _vm = StateObject(wrappedValue: CoinDetailViewModel(coin: coin))
+        _vm = StateObject(wrappedValue: CoinDetailViewModel(coin: coin))
     }
-    
+
     var body: some View {
         ScrollView {
             VStack {
@@ -26,7 +39,7 @@ struct CoinDetailView: View {
                     statsGrid
             }
         }
-        .navigationTitle(coin.name?.capitalized ?? "")
+        .navigationTitle(coin.symbol?.capitalized ?? "")
     }
 }
 
@@ -64,7 +77,7 @@ extension CoinDetailView {
 struct CoinDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            CoinDetailView(coin: dev.coin.data!.first!)
+            CoinDetailView(coin:dev.coin.data!.first!)
         }
     }
 }

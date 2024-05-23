@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+
     @EnvironmentObject private var vm: HomeViewModel
-    @State private var showPortfolio: Bool = false
+    @State private var showPortfolio: Bool = true
     @State private var showPortfolioView: Bool = false
+
+    @State private var selectedCoin: Coin? = nil
+    @State private var showDetailView: Bool = false
 
     var body: some View {
         ZStack{
@@ -34,6 +37,15 @@ struct HomeView: View {
                 Spacer(minLength: 0)
             }
         }
+        .background(
+            NavigationLink(
+            destination: CoinDetailLoadingView(coin: $selectedCoin),
+            isActive: $showDetailView,
+            label: {
+                EmptyView()
+            }
+            )
+        )
     }
 }
 
@@ -73,6 +85,7 @@ extension HomeView {
         HStack{
             HStack{
                 Text("Coin")
+                    .padding(.leading)
 
                 Image(systemName: "chevron.down")
                     .opacity((vm.sortOption == .rank || vm.sortOption == .rankReversed) ? 1.0 : 0)
@@ -90,16 +103,17 @@ extension HomeView {
                     Image(systemName: "chevron.down")
                         .opacity((vm.sortOption == .holdings || vm.sortOption == .holdingsReversed) ? 1.0 : 0)
                         .rotationEffect(Angle(degrees: vm.sortOption == .holdings ? 0 : 180))
+
                 }
                 .onTapGesture {
                     vm.sortOption = vm.sortOption == .holdings ? .holdingsReversed : .holdings
                 }
-
+                Spacer()
             }
-            Spacer()
             HStack{
                 HStack{
                     Text("Price")
+                        .padding(.leading)
                     Image(systemName: "chevron.down")
                         .opacity((vm.sortOption == .price || vm.sortOption == .priceReversed) ? 1.0 : 0)
                         .rotationEffect(Angle(degrees: vm.sortOption == .price ? 0 : 180))
@@ -113,38 +127,47 @@ extension HomeView {
                 }},
                        label: {
                     Image(systemName: "goforward")
+                        .rotationEffect(Angle(degrees: vm.isLoading ? 360 : 0))
                 })
             }
-            .rotationEffect(Angle(degrees: vm.isLoading ? 360 : 0))
+
 
 
         }
         .font(.caption)
             .foregroundColor(Color.theme.secondaryText)
             .padding(.horizontal)
-            .frame(width: UIScreen.main.bounds.width / 1.5, alignment: .trailing)
+            .frame(alignment: .trailing)
     }
 
     private var allCoinsList: some View {
         List{
             ForEach(vm.fetchedCoins){
                 coin in
-                NavigationLink(
-                    destination: CoinDetailView(coin: coin),
-                    label: {
-                    CoinRowView(coin: coin, showHoldingsColumn: false)
-                        .listRowInsets(.init(top: 10, leading:0, bottom:10, trailing: 10))
-                })
+                CoinRowView(coin: coin, showHoldingsColumn: false)
+                    .listRowInsets(.init(top: 10, leading:0, bottom:10, trailing: 10))
+                    .onTapGesture {
+                        activateDetail(coin: coin)
+                    }
             }
         }
         .listStyle(PlainListStyle())
     }
-    
+
+    private func activateDetail(coin: Coin) {
+        selectedCoin = coin
+        showDetailView.toggle()
+    }
+
     private var portfolioCoinsList: some View {
+
         List{
             ForEach(vm.portfolioCoins){
                 coin in CoinRowView(coin: coin, showHoldingsColumn: true)
                     .listRowInsets(.init(top: 10, leading:0, bottom:10, trailing: 10))
+                    .onTapGesture {
+                        activateDetail(coin: coin)
+                    }
             }
         }
         .listStyle(PlainListStyle())

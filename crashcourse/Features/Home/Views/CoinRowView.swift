@@ -20,6 +20,9 @@ struct CoinRowView: View {
         }
         .font(.subheadline)
         .padding(.horizontal,10)
+        .background(
+            Color.theme.background.opacity(0.001)
+        )
     }
 
     private var leftColumn: some View{

@@ -46,7 +46,9 @@ struct Coin: Identifiable, Codable{
     var currentHoldingsValue: Double {
         return (currentHoldings ?? 0) * currentPrice
     }
-
+    var first3Letter: String {
+        return symbol![0..<3]
+    }
 }
 struct Quote: Codable{
     let usd: USD?

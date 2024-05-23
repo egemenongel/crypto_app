@@ -10,7 +10,6 @@ import SwiftUI
 struct CoinRowView: View {
     let coin: Coin
     let showHoldingsColumn: Bool
-    
     var body: some View {
         HStack(spacing: 0){
             leftColumn
@@ -22,8 +21,9 @@ struct CoinRowView: View {
         .font(.subheadline)
         .padding(.horizontal,10)
     }
-    
+
     private var leftColumn: some View{
+
         HStack(spacing: 0){
             Text("\(coin.cmcRank!)")
                 .frame(width: 70)
@@ -38,11 +38,12 @@ struct CoinRowView: View {
                 .frame(width: 30)
                 .fontWeight(.bold)
             Spacer()
-            Text((coin.symbol?.uppercased())!)
-                .font(.headline)
-                .padding(.leading, 6)
+            Text((coin.first3Letter.uppercased()))
+                .font(.caption)
+
                 .foregroundStyle(Color.theme.accent)
             Spacer()
+
         }
     }
     
@@ -60,7 +61,9 @@ struct CoinRowView: View {
                 1>0 ?
                 Color.theme.green :
                 Color.theme.red)
-        }.frame(width: UIScreen.main.bounds.width / 3, alignment:  .trailing)
+        }
+        .frame(width: UIScreen.main.bounds.width / 3, alignment:  .trailing)
+        .padding()
     }
 }
 

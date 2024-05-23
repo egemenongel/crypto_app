@@ -37,7 +37,6 @@ struct HomeView: View {
     }
 }
 
-
 extension HomeView {
 
     private var homeHeader: some View {
@@ -72,21 +71,53 @@ extension HomeView {
 
     private var columnTitles: some View{
         HStack{
-            Text("Coin")
-            Spacer()
-            if showPortfolio{
-                Text("Holdings")
+            HStack{
+                Text("Coin")
+
+                Image(systemName: "chevron.down")
+                    .opacity((vm.sortOption == .rank || vm.sortOption == .rankReversed) ? 1.0 : 0)
+                    .rotationEffect(Angle(degrees: vm.sortOption == .rank ? 0 : 180))
                 Spacer()
             }
-            Text("Price")
-            Button(action: {
-                withAnimation(.linear(duration: 2.0)){
-                vm.reload()
-            }},
-                   label: {
-                Image(systemName: "goforward")
-            })
+            .onTapGesture {
+                vm.sortOption = vm.sortOption == .rank ? .rankReversed : .rank
+            }
+
+
+            if showPortfolio{
+                HStack{
+                    Text("Holdings")
+                    Image(systemName: "chevron.down")
+                        .opacity((vm.sortOption == .holdings || vm.sortOption == .holdingsReversed) ? 1.0 : 0)
+                        .rotationEffect(Angle(degrees: vm.sortOption == .holdings ? 0 : 180))
+                }
+                .onTapGesture {
+                    vm.sortOption = vm.sortOption == .holdings ? .holdingsReversed : .holdings
+                }
+
+            }
+            Spacer()
+            HStack{
+                HStack{
+                    Text("Price")
+                    Image(systemName: "chevron.down")
+                        .opacity((vm.sortOption == .price || vm.sortOption == .priceReversed) ? 1.0 : 0)
+                        .rotationEffect(Angle(degrees: vm.sortOption == .price ? 0 : 180))
+                }
+                .onTapGesture {
+                    vm.sortOption = vm.sortOption == .price ? .priceReversed : .price
+                }
+                Button(action: {
+                    withAnimation(.linear(duration: 2.0)){
+                    vm.reload()
+                }},
+                       label: {
+                    Image(systemName: "goforward")
+                })
+            }
             .rotationEffect(Angle(degrees: vm.isLoading ? 360 : 0))
+
+
         }
         .font(.caption)
             .foregroundColor(Color.theme.secondaryText)

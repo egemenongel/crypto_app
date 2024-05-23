@@ -26,8 +26,18 @@ struct CoinRowView: View {
     private var leftColumn: some View{
         HStack(spacing: 0){
             Text("\(coin.cmcRank!)")
-            Circle()
-                .frame(width: 30, height: 30)
+                .frame(width: 70)
+            Text("\(coin.symbol?.first?.description.uppercased() ?? "")")
+                .foregroundStyle(Color.theme.accent)
+                .background(
+                    Circle()
+                        .frame(width: 30, height: 30)
+                        .foregroundStyle(Color.theme.secondaryText)
+                )
+                .font(.headline)
+                .frame(width: 30)
+                .fontWeight(.bold)
+            Spacer()
             Text((coin.symbol?.uppercased())!)
                 .font(.headline)
                 .padding(.leading, 6)

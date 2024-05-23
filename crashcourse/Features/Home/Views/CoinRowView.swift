@@ -38,8 +38,8 @@ struct CoinRowView: View {
     
     private var centerColumn: some View{
         VStack{
-            Text("\(coin.currentHoldings!)")
-            Text("$ \(coin.currentHoldingsValue)")
+            Text(coin.currentHoldings!.description)
+            Text("\(coin.currentHoldingsValue.asCurrencyWith2Decimals())")
         }
     }
     

@@ -18,7 +18,7 @@ class StatisticsService{
         getStatistics()
     }
 
-    private func getStatistics(){
+    func getStatistics(){
         guard let url = URL(string: "https://sandbox-api.coinmarketcap.com/v1/global-metrics/quotes/latest?convert=BTC,USD")
         else { return }
 

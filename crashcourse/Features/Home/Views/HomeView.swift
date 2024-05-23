@@ -79,6 +79,14 @@ extension HomeView {
                 Spacer()
             }
             Text("Price")
+            Button(action: {
+                withAnimation(.linear(duration: 2.0)){
+                vm.reload()
+            }},
+                   label: {
+                Image(systemName: "goforward")
+            })
+            .rotationEffect(Angle(degrees: vm.isLoading ? 360 : 0))
         }
         .font(.caption)
             .foregroundColor(Color.theme.secondaryText)

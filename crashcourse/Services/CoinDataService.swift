@@ -17,7 +17,7 @@ class CoinDataService{
         getCoins()
     }
 
-    private func getCoins(){
+    func getCoins(){
         guard let url = URL(string: "https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=100&sort=market_cap&cryptocurrency_type=all&tag=all")
         else { return }
 

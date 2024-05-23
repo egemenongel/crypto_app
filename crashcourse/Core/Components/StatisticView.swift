@@ -26,7 +26,7 @@ struct StatisticView: View {
                     .font(.caption2)
                     .rotationEffect(Angle(degrees: (stat.percentageChange ?? 0) >=  0 ? 0 : 180))
 
-                Text((stat.percentageChange != nil ? stat.percentageChange?.description : "")!)
+                Text((stat.percentageChange != nil ? stat.percentageChange?.doubleWith2Decimal().description : "")!)
                     .font(.caption)
                     .bold()
             }

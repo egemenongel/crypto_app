@@ -22,6 +22,16 @@ extension Double{
         return formatter
     }
     
+    func doubleWith2Decimal() -> String {
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .currency
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        let number = NSNumber(value: self)
+        return formatter.string(from: number) ?? "0.00"
+    }
+
     func asCurrencyWith6Decimals() -> String {
         let number = NSNumber(value: self)
         return currencyFormatter6.string(from: number) ?? "$0.00"

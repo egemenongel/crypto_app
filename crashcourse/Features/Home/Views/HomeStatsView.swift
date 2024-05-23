@@ -17,7 +17,6 @@ struct HomeStatsView: View {
             ForEach(vm.statistics){ stat in
                 StatisticView(stat: stat)
                     .frame(width: UIScreen.main.bounds.width / 3, height: 60)
-                    .padding()
 
             }
         }

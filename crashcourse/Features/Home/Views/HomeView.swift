@@ -128,8 +128,13 @@ extension HomeView {
     private var allCoinsList: some View {
         List{
             ForEach(vm.fetchedCoins){
-                coin in CoinRowView(coin: coin, showHoldingsColumn: false)
-                    .listRowInsets(.init(top: 10, leading:0, bottom:10, trailing: 10))
+                coin in
+                NavigationLink(
+                    destination: CoinDetailView(coin: coin),
+                    label: {
+                    CoinRowView(coin: coin, showHoldingsColumn: false)
+                        .listRowInsets(.init(top: 10, leading:0, bottom:10, trailing: 10))
+                })
             }
         }
         .listStyle(PlainListStyle())

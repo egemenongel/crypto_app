@@ -35,9 +35,18 @@ struct Coin: Identifiable, Codable{
         return quote?.usd?.price ?? 0
     }
 
+    var marketCap: Double {
+        return quote?.usd?.price ?? 0
+    }
+
+    var percentChange: Double {
+        return quote?.usd?.percentChange24H ?? 0
+    }
+
     var currentHoldingsValue: Double {
         return (currentHoldings ?? 0) * currentPrice
     }
+
 }
 struct Quote: Codable{
     let usd: USD?
@@ -49,12 +58,12 @@ struct Quote: Codable{
 }
 
 struct USD: Codable{
-    let price: Double?
-    let percentChange24H: Double?
+    let price, percentChange24H, marketCap: Double?
 
     enum CodingKeys: String, CodingKey {
         case price
         case percentChange24H = "percent_change_24h"
+        case marketCap = "market_cap"
     }
 }
 

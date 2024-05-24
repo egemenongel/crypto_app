@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct crashcourseApp: App {
-    
+    @State private var showLaunchView: Bool = true
     @StateObject private var vm = HomeViewModel()
 
     init() {
@@ -19,10 +19,17 @@ struct crashcourseApp: App {
 
     var body: some Scene {
         WindowGroup {
-            NavigationView{
-                HomeView().toolbar(.hidden)
+            ZStack{
+                NavigationView{
+                    HomeView().toolbar(.hidden)
+                }
+                .environmentObject(vm)
+
+                if(showLaunchView) {
+                    LaunchView(showLaunchView: $showLaunchView)
+//                        .transition(.move(edge: .leading))
+                }
             }
-            .environmentObject(vm)
         }
     }
 }

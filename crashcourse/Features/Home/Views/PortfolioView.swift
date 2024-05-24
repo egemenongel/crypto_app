@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct PortfolioView: View {
-    @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var vm: HomeViewModel
     @State private var selectedCoin: Coin? = nil
     @State private var ownedText: String = ""
     @State private var showCheckmark: Bool = false
     var body: some View {
-        NavigationView{
+        NavigationStack{
             if #available(iOS 17.0, *) {
                 ScrollView{
                     VStack(alignment: .leading, spacing:10){
@@ -26,14 +25,14 @@ struct PortfolioView: View {
                     }
                 }
                 .navigationTitle("Edit Portfolio")
-                .toolbar(content: {
+                .toolbar{
                     ToolbarItem(placement: .topBarLeading){
-                        CloseButton(dismiss: _dismiss)
+                        CloseButton()
                     }
                     ToolbarItem(placement: .topBarTrailing){
                         trailingNavButtons
                     }
-                })
+                }
                 .onChange(of: vm.searchText) { oldValue, newValue in
                     if newValue == ""{
                         removeSelectedCoin()

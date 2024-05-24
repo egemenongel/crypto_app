@@ -30,20 +30,10 @@ struct CoinRowView: View {
         HStack(spacing: 0){
             Text("\(coin.cmcRank!)")
                 .frame(width: 70)
-            Text("\(coin.symbol?.first?.description.uppercased() ?? "")")
-                .foregroundStyle(Color.theme.accent)
-                .background(
-                    Circle()
-                        .frame(width: 30, height: 30)
-                        .foregroundStyle(Color.theme.secondaryText)
-                )
-                .font(.headline)
-                .frame(width: 30)
-                .fontWeight(.bold)
+            CoinLogoView(coin: coin)
             Spacer()
             Text((coin.first3Letter.uppercased()))
                 .font(.caption)
-
                 .foregroundStyle(Color.theme.accent)
             Spacer()
 
@@ -54,7 +44,9 @@ struct CoinRowView: View {
         VStack{
             Text(coin.currentHoldings!.description)
             Text("\(coin.currentHoldingsValue.asCurrencyWith2Decimals())")
+                .font(.caption)
         }
+        .frame(width:70)
     }
     
     private var rightColumn: some View{
@@ -65,7 +57,7 @@ struct CoinRowView: View {
                 Color.theme.green :
                 Color.theme.red)
         }
-        .frame(width: UIScreen.main.bounds.width / 3, alignment:  .trailing)
+        .frame(width: UIScreen.main.bounds.width / 5, alignment:  .trailing)
         .padding()
     }
 }

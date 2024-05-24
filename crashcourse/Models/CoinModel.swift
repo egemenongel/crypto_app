@@ -19,10 +19,9 @@ struct Coin: Identifiable, Codable{
     let name, symbol, slug: String?
     let currentHoldings: Double?
     let quote: Quote?
-    let coinId: String = UUID().uuidString
 
     enum CodingKeys: String, CodingKey {
-        case id, name, symbol, slug, quote, coinId
+        case id, name, symbol, slug, quote
         case cmcRank = "cmc_rank"
         case currentHoldings
     }

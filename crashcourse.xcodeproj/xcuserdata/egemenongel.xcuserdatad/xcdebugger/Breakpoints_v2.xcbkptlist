@@ -71,17 +71,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9DC27175-20B7-4B59-9C32-12E78BD65C4F"
+            uuid = "289EADFF-598B-44D1-8BD4-3FEC55E1FB02"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "crashcourse/Features/Home/Views/PortfolioView.swift"
+            filePath = "crashcourse/Features/CoinDetail/Views/CoinDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "saveButtonPressed()"
-            landmarkType = "7">
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "CoinDetailView"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -10,7 +10,7 @@ import Foundation
 extension Double{
     
     /// Converts a Double into a Currency with 2-6 decimals
-    private var currencyFormatter6: NumberFormatter {
+    private var currencyFormatter4: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = .currency
@@ -18,14 +18,14 @@ extension Double{
         formatter.currencyCode = "usd"
         formatter.currencySymbol = "$"
         formatter.minimumFractionDigits = 2
-        formatter.maximumFractionDigits = 6
+        formatter.maximumFractionDigits = 4
         return formatter
     }
     
     func doubleWith2Decimal() -> String {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
-        formatter.numberStyle = .currency
+        formatter.numberStyle = .decimal
         formatter.minimumFractionDigits = 2
         formatter.maximumFractionDigits = 2
         let number = NSNumber(value: self)
@@ -34,7 +34,7 @@ extension Double{
 
     func asCurrencyWith6Decimals() -> String {
         let number = NSNumber(value: self)
-        return currencyFormatter6.string(from: number) ?? "$0.00"
+        return currencyFormatter4.string(from: number) ?? "$0.00"
     }
     
     /// Converts a Double into a Currency with 2 decimals
@@ -52,6 +52,6 @@ extension Double{
     
     func asCurrencyWith2Decimals() -> String {
         let number = NSNumber(value: self)
-        return currencyFormatter6.string(from: number) ?? "$0.00"
+        return currencyFormatter4.string(from: number) ?? "$0.00"
     }
 }

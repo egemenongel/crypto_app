@@ -97,14 +97,14 @@ class HomeViewModel: ObservableObject{
             .map { (coinModels, portfolioEntities) -> [Coin] in
 
                 coinModels.compactMap{(coin) -> Coin? in
-                    guard let entity = portfolioEntities.first(where: { $0.coinId == coin.coinId}) else {
+                    guard let entity = portfolioEntities.first(where: { $0.coinId == coin.id?.description}) else {
                         return nil
                 }
                     return coin.updateHoldings(amount: entity.amount)
             }
             }
             .sink{[weak self] (returnedCoins) in
-                self?.portfolioCoins = self!.sortPortfolioCoins(coins: returnedCoins)}
+                self?.portfolioCoins = returnedCoins}
             .store(in: &cancellables)
     }
 
@@ -147,10 +147,10 @@ class HomeViewModel: ObservableObject{
 
                 // Access data and create statistics inside the closure
                 if let data = returnedQuote?.data {
-                    let stat = StatisticModel(title: "BTC Dominance", value: data.btcDominance.description)
-                    let stat2 = StatisticModel(title: "Total Exchanges", value: data.totalExchanges.description)
-                    let stat3 = StatisticModel(title: "Total Market Cap", value: data.quote.usd.totalMarketCap.description)
-                    let stat4 = StatisticModel(title: "Portfolio Value", value: "$\(portfolioValue)", percentageChange: percentageChange.isNaN ? 0 : percentageChange)
+                    let stat = StatisticModel(title: "BTC Dominance", value: data.btcDominance)
+                    let stat2 = StatisticModel(title: "Total Exchanges", value: Double(data.totalExchanges))
+                    let stat3 = StatisticModel(title: "Total Market Cap", value: data.quote.usd.totalMarketCap)
+                    let stat4 = StatisticModel(title: "Portfolio Value", value: portfolioValue, percentageChange: percentageChange.isNaN ? 0 : percentageChange)
                     self?.statistics.append(contentsOf: [stat, stat2, stat3, stat4])
                 }
                 self?.isLoading = false

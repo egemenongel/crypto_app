@@ -28,7 +28,8 @@ class PortfolioDataService {
 
     func updatePortfolio(coin: Coin, amount: Double) {
 
-        if let entity = savedEntities.first(where: { $0.coinId == coin.coinId}){
+        if let entity = savedEntities.first(where: { $0.coinId == coin.id?.description}){
+            print("id \(coin.id?.description ?? "def")")
             if amount > 0 {
                 update(entity: entity, amount: amount)
             }
@@ -44,6 +45,8 @@ class PortfolioDataService {
         let request = NSFetchRequest<PortfolioEntity>(entityName: entityName)
         do {
             savedEntities = try container.viewContext.fetch(request)
+            print("fetched")
+            print(savedEntities.count)
         } catch let error {
             print("Error fetching Portfolio Entities. \(error)")
         }
@@ -51,8 +54,10 @@ class PortfolioDataService {
 
     private func add(coin: Coin, amount: Double){
         let entity = PortfolioEntity(context: container.viewContext)
-        entity.coinId = coin.coinId
+        entity.coinId = coin.id?.description
+        print("id \(coin.id?.description ?? "def")")
         entity.amount = amount
+        print("Added")
         applyChanges()
     }
 

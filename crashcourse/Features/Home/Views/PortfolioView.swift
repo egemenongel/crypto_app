@@ -73,19 +73,25 @@ extension PortfolioView {
         ScrollView(.horizontal,showsIndicators: false, content: {
             LazyHStack{
                 ForEach(vm.fetchedCoins){ coin in
-                    Text(coin.symbol?.description ?? "")
-                        .padding()
-                        .onTapGesture {
-                            withAnimation(.easeIn){
-                                selectedCoin = coin
-                            }
-                            ownedText = ""
+                    VStack(spacing: 0){
+                        Spacer()
+                        CoinLogoView(coin: coin)
+                        Text(coin.first3Letter)
+                            .padding(30)
+
+                    }
+                    
+                    .background(
+                        RoundedRectangle(cornerRadius:8)
+                            .stroke(coin.id == selectedCoin?.id ? Color.theme.green : Color.clear)
+
+                    ).onTapGesture {
+                        withAnimation(.easeIn){
+                       updateSelectedCoin(coin: coin)
                         }
-                        .background(
-                            RoundedRectangle(cornerRadius:8)
-                                .stroke(coin.id == selectedCoin?.id ? Color.theme.green : Color.clear)
-                        )
-                        .foregroundStyle(Color.theme.accent)
+
+                    }
+                    .foregroundStyle(Color.theme.accent)
 
                 }
 
